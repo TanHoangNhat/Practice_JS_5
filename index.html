@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container py-4 px-5 bg-dark text-white">
+            <div class="row">
+                <div class="col-md-4 header__logo">
+                    <a href="index.html">
+                        <h1 class="text-uppercase m-0">BC06</h1>
+                    </a>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-6 text-right header__title d-flex justify-content-end flex-wrap align-items-center">
+                    <h1 class="text-uppercase m-0 w-100">Hoàng Nhật Tân</h1>
+                    <h3 class="m-0 w-100">Bài tập JavaScript - Buổi 5</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <section class="exercise">
+        <div class="container">
+            <div class="row">
+                <ul class="nav nav-pills col-md-2 w-100 px-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3 active" data-toggle="pill" href="#exercise__1"><span>Bài tập
+                                1</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3" data-toggle="pill" href="#exercise__2"><span>Bài tập 2</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3" data-toggle="pill" href="#exercise__3"><span>Bài tập 3</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3" data-toggle="pill" href="#exercise__4"><span>Bài tập 4</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3" data-toggle="pill"><span>N/A</span></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-0 exercise__content col-md-10">
+                    <div class="tab-pane exercise__item h-100 active" id="exercise__1">
+                        <div class="card h-100">
+                            <div class="pl-5 card-header">
+                                <h2>Quản lý tuyển sinh</h2>
+                            </div>
+                            <div class="pl-5 card-body">
+                                <div class="row my-4 mx-0">
+                                    <h4 class="card-title m-0 col-md-2 p-0">Điểm chuẩn</h4>
+                                    <h4 class="card-title m-0 col-md-6 p-0">Điểm thi (3 môn)</h4>
+                                    <h4 class="card-title m-0 col-md-2 p-0">Khu vực (A, B, C)</h4>
+                                    <h4 class="card-title m-0 col-md-2 p-0">Đối tượng (1, 2, 3)</h4>
+                                </div>
+                                <div class="row my-5 mx-0">
+                                    <input id="txtStandardPoint" class="form-control col-md-1" type="number"
+                                        placeholder="Điểm">
+                                    <div class="col-md-1"></div>
+                                    <input id="txtMark_1" class="form-control col-md-1" type="number"
+                                        placeholder="Môn 1">
+                                    <div class="col-md-1"></div>
+                                    <input id="txtMark_2" class="form-control col-md-1" type="number"
+                                        placeholder="Môn 2">
+                                    <div class="col-md-1"></div>
+                                    <input id="txtMark_3" class="form-control col-md-1" type="number"
+                                        placeholder="Môn 3">
+                                    <div class="col-md-1"></div>
+                                    <input id="txtRegion" class="form-control col-md-1" type="text"
+                                        placeholder="Khu vực">
+                                    <div class="col-md-1"></div>
+                                    <input id="txtObject" class="form-control col-md-1" type="number"
+                                        placeholder="Đối tượng">
+                                </div>
+                                <button id="btnGetResult" class="col-md-3 btn">Kết quả<span>Kết quả</span></button>
+                            </div>
+                            <div class="pl-5 card-footer">
+                                <h2 id="txtResult__1">Kết quả: </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane exercise__item h-100 fade" id="exercise__2">
+                        <div class="card h-100">
+                            <div class="pl-5 card-header">
+                                <h2>Tính thuế thu nhập cá nhân</h2>
+                            </div>
+                            <div class="pl-5 card-body">
+                                <h4 class="card-title my-4">Nhập vào 5 số</h4>
+                                <div class="row col-md-8 my-5">
+                                    <input id="txtNumber1" class="form-control mr-3 col-md-1" type="number"
+                                        onkeyup="enableButton__2()">
+                                    <input id="txtNumber2" class="form-control mr-3 col-md-1" type="number"
+                                        onkeyup="enableButton__2()">
+                                    <input id="txtNumber3" class="form-control mr-3 col-md-1" type="number"
+                                        onkeyup="enableButton__2()">
+                                    <input id="txtNumber4" class="form-control mr-3 col-md-1" type="number"
+                                        onkeyup="enableButton__2()">
+                                    <input id="txtNumber5" class="form-control mr-3 col-md-1" type="number"
+                                        onkeyup="enableButton__2()">
+                                </div>
+                                <button id="btnCountAvg" onclick="countAvg()" class="btn" disabled>Tính giá trị trung
+                                    bình<span>Tính giá trị trung bình</span></button>
+                            </div>
+                            <div class="pl-5 card-footer">
+                                <h2 id="txtResult__2">Giá trị trung bình:</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane exercise__item h-100 fade" id="exercise__3">
+                        <div class="card h-100">
+                            <div class="pl-5 card-header">
+                                <h2>Tính tiền điện</h2>
+                            </div>
+                            <div class="pl-5 card-body">
+                                <h4 class="card-title my-4">Tỷ giá USD: 23,500 VND</h4>
+                                <div class="row my-5 m-0">
+                                    <input id="txtExchangeMoney" class="form-control col-md-2" type="number"
+                                        placeholder="Số USD quy đổi" onkeyup="enableButton__3()">
+                                </div>
+                                <button id="btnExchangeMoney" onclick="exchangeMoney()" class="col-md-2 btn"
+                                    disabled>Quy đổi<span>Quy đổi</span></button>
+                            </div>
+                            <div class="pl-5 card-footer">
+                                <h2 id="txtResult__3">Thành tiền: </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane exercise__item h-100 fade" id="exercise__4">
+                        <div class="card h-100">
+                            <div class="pl-5 card-header">
+                                <h2>Tính tiền cáp</h2>
+                            </div>
+                            <div class="pl-5 card-body">
+                                <h4 class="card-title my-4">Nhập vào chiều dài và chiều rộng</h4>
+                                <div class="row col-md-6 my-5 mx-0 p-0">
+                                    <input id="txtLength" class="mr-3 col-md-3 form-control" type="number"
+                                        placeholder="Chiều dài" onkeyup="enableButton__4()">
+                                    <input id="txtWidth" class="col-md-3 form-control" type="number"
+                                        placeholder="Chiều rộng" onkeyup="enableButton__4()">
+                                </div>
+                                <div class="row col-md-6 m-0 p-0">
+                                    <button id="btnCountArea" onclick="countArea()" class="col-md-3 mr-3 btn"
+                                        disabled>Tính diện tích<span>Tính diện tích</span></button>
+                                    <button id="btnCountPerimeter" onclick="countPerimeter()" class="col-md-3 btn"
+                                        disabled>Tính chu vi<span>Tính chu vi</span></button>
+                                </div>
+                            </div>
+                            <div class="pl-5 card-footer">
+                                <div class="row">
+                                    <h2 id="txtResult__4--1" class="col-md-6">Diện tích HCN: </h2>
+                                    <h2 id="txtResult__4--2" class="col-md-6">Chu vi HCN: </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center text-white bg-dark py-5">
+            <h1 class="mt-5 text-uppercase"><a target="_blank" href="https://cybersoft.edu.vn/">cybersoft.edu.vn</a>
+            </h1>
+            <h4 class="mb-4 mt-4">82 Ung Van Khiem - Binh Thanh District - Ho Chi Minh City</h4>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/baitap_1.js"></script>
+    <script src="./js/baitap_2.js"></script>
+    <script src="./js/baitap_3.js"></script>
+    <script src="./js/baitap_4.js"></script>
+    <script src="./js/baitap_5.js"></script>
+</body>
+
+</html>
