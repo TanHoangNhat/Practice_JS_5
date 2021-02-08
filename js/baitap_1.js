@@ -18,15 +18,19 @@ document.getElementById("btnGetResult").addEventListener("click", function () {
     var mark_1 = parseFloat(document.getElementById("txtMark_1").value);
     var mark_2 = parseFloat(document.getElementById("txtMark_2").value);
     var mark_3 = parseFloat(document.getElementById("txtMark_3").value);
-    var region = document.getElementById("txtRegion").value;
-    var object = parseInt(document.getElementById("txtObject").value);
+    var region = document.getElementById("selectRegion").value;
+    var object = parseInt(document.getElementById("selectObject").value);
 
     var result = "";
     var totalMark = 0;
-    if (region != "A" && region != "B" && region != "C" && region != "X") {
-        result = "Khu vực: A, B, C (Nhập X nếu không thuộc khu vực ưu tiên)";
-    } else if (object > 3 || object < 0) {
-        result = "Đối tượng: 1, 2, 3 (Nhập 0 nếu không thuộc đối tượng ưu tiên)";
+    if (isNaN(standardPoint)) {
+        result = "Vui lòng nhập điểm chuẩn!!!";
+    } else if (isNaN(mark_1)) {
+        result = "Vui lòng nhập điểm môn 1!!!";
+    } else if (isNaN(mark_2)) {
+        result = "Vui lòng nhập điểm môn 2!!!";
+    } else if (isNaN(mark_3)) {
+        result = "Vui lòng nhập điểm môn 3!!!";
     } else {
         totalMark = calculateTotalMark(mark_1, mark_2, mark_3, region, object);
         if (totalMark > 30) {
@@ -48,17 +52,17 @@ function calculateTotalMark(mark_1, mark_2, mark_3, region, object) {
 
     if (region != "X") {
         switch (region) {
-            case "A": totalMark += 2;
-            case "B": totalMark += 1;
-            case "C": totalMark += 0.5;
+            case "A": totalMark += 2; break;
+            case "B": totalMark += 1; break;
+            case "C": totalMark += 0.5; break;
         }
     }
 
     if (object != 0) {
         switch (object) {
-            case 1: totalMark += 2.5;
-            case 2: totalMark += 1.5;
-            case 3: totalMark += 1;
+            case 1: totalMark += 2.5; break;
+            case 2: totalMark += 1.5; break;
+            case 3: totalMark += 1; break;
         }
     }
 

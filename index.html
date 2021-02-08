@@ -89,11 +89,27 @@
                                     <input id="txtMark_3" class="form-control col-md-1" type="number"
                                         placeholder="Môn 3">
                                     <div class="col-md-1"></div>
-                                    <input id="txtRegion" class="form-control col-md-1" type="text"
-                                        placeholder="Khu vực">
+                                    <!-- <input id="txtRegion" class="form-control col-md-1" type="text"
+                                        placeholder="Khu vực"> -->
+                                    <div class="form-group col-md-1 p-0 m-0">
+                                        <select class="form-control" name="" id="selectRegion">
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="X">X (Nếu không thuộc khu vực ưu tiên)</option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-1"></div>
-                                    <input id="txtObject" class="form-control col-md-1" type="number"
-                                        placeholder="Đối tượng">
+                                    <!-- <input id="txtObject" class="form-control col-md-1" type="number"
+                                        placeholder="Đối tượng"> -->
+                                    <div class="form-group col-md-1 p-0 m-0">
+                                        <select class="form-control" name="" id="selectObject">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="0">0 (Nếu không thuộc khu vực ưu tiên)</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <button id="btnGetResult" class="col-md-3 btn">Kết quả<span>Kết quả</span></button>
                             </div>
@@ -108,21 +124,20 @@
                                 <h2>Tính thuế thu nhập cá nhân</h2>
                             </div>
                             <div class="pl-5 card-body">
-                                <h4 class="card-title my-4">Nhập vào 5 số</h4>
-                                <div class="row col-md-8 my-5">
-                                    <input id="txtNumber1" class="form-control mr-3 col-md-1" type="number"
-                                        onkeyup="enableButton__2()">
-                                    <input id="txtNumber2" class="form-control mr-3 col-md-1" type="number"
-                                        onkeyup="enableButton__2()">
-                                    <input id="txtNumber3" class="form-control mr-3 col-md-1" type="number"
-                                        onkeyup="enableButton__2()">
-                                    <input id="txtNumber4" class="form-control mr-3 col-md-1" type="number"
-                                        onkeyup="enableButton__2()">
-                                    <input id="txtNumber5" class="form-control mr-3 col-md-1" type="number"
-                                        onkeyup="enableButton__2()">
+                                <h4 class="card-title my-4">Nhập vào thông tin cá nhân</h4>
+                                <div class="row col-md-12 my-5 mx-0 p-0">
+                                    <input id="txtFullName" class="form-control mr-3 col-md-3" type="text"
+                                        placeholder="Họ và Tên">
+                                    <input id="txtTotalEarning" class="form-control mr-3 col-md-3" type="number"
+                                        placeholder="Tổng thu nhập năm">
+                                    <input id="txtNumberPeople" class="form-control mr-3 col-md-3" type="number"
+                                        placeholder="Số người phụ thuộc">
                                 </div>
-                                <button id="btnCountAvg" onclick="countAvg()" class="btn" disabled>Tính giá trị trung
-                                    bình<span>Tính giá trị trung bình</span></button>
+                                <div class="row my-5 mx-0 p-0">
+                                    <div class="col-md-3 mr-3"></div>
+                                    <button id="btnCalcPIT" class="btn col-md-3">Tính thuế thu nhập cá nhân<span>Tính thuế thu nhập cá nhân</span></button>
+                                </div>
+
                             </div>
                             <div class="pl-5 card-footer">
                                 <h2 id="txtResult__2">Giá trị trung bình:</h2>

@@ -1,36 +1,85 @@
 /**
  * Mô hình 3 khối
  * * Đầu vào (input)
- * * * Giá trị 5 số => var number_1, ... var number_5
- * * * Giá trị trung bình => var average
+ * * * Lấy giá trị người dùng nhập vào input
  * * Xử lý
- * * * average = (number_1 + ... + number_5)/5
+ * * * Từ Tổng thu nhập và số người phụ thuộc tính ra thu nhập chịu thuế theo công thức
+ * * * Tạo hàm tính thuế thu nhập cá nhân với tham số truyền vào là Thu nhập chịu thuế đã tính được ở trên
+ * * *      => Tách hàm thành từ phần thuế khác nhau
  * * Đầu ra
- * * * Xuất ra màn hình kết quả giá trị trung bình của 5 số
+ * * * Xuất kết quả ra màn hình gồm tên và tiền thuế phải trả
  */
 
-function countAvg() {
-   var number_1 = parseFloat(document.getElementById("txtNumber1").value);
-   var number_2 = parseFloat(document.getElementById("txtNumber2").value);
-   var number_3 = parseFloat(document.getElementById("txtNumber3").value);
-   var number_4 = parseFloat(document.getElementById("txtNumber4").value);
-   var number_5 = parseFloat(document.getElementById("txtNumber5").value);
+document.getElementById("btnCalcPIT").addEventListener("click", function () {
+   var fullName = document.getElementById("txtFullName").value;
+   var totalEarning = parseInt(document.getElementById("txtTotalEarning").value);
+   var numberPeople = parseInt(document.getElementById("txtNumberPeople").value);
 
-   var avegare = (number_1 + number_2 + number_3 + number_4 + number_5) / 5;
+   var currentFormat = new Intl.NumberFormat("vn-VN");
 
-   document.getElementById("txtResult__2").innerHTML = "Giá trị trung bình: " + avegare;
+   var result = "";
+
+   if (isNaN(totalEarning)) {
+      result = "Vui lòng cho biết thu nhập!!!";
+   } else if (isNaN(numberPeople)) {
+      result = "Vui lòng cho biết số người phụ thuộc!!!";
+   } else if (totalEarning <= 0) {
+      result = "Thu nhập phải lớn hơn 0";
+   } else if (numberPeople < 0) {
+      result = "Số người phụ thuộc không được là số âm";
+   } else {
+      var taxEarning = totalEarning - 4000000 - numberPeople * 1600000;
+      taxEarning <= 0 ? result = fullName + " không cần phải trả tiền thuế TNCN" :
+         result = fullName + " phải trả " + currentFormat.format(calcPIT(taxEarning)) + "VND tiền thuế TNCN";
+   }
+
+   document.getElementById("txtResult__2").innerHTML = result;
+});
+
+function calcPIT(taxEarning) {
+   var tax = 0;
+   if (taxEarning > 0 && taxEarning <= 60000000) {
+      tax = tax_60(taxEarning);
+   } else if (taxEarning > 60000000 && taxEarning <= 120000000) {
+      tax = tax_60(60000000) + tax_60_120(taxEarning - 60000000);
+   } else if (taxEarning > 120000000 && taxEarning <= 216000000) {
+      tax = tax_60(60000000) + tax_60_120(60000000) + tax_120_216(taxEarning - 120000000);
+   } else if (taxEarning > 216000000 && taxEarning <= 384000000) {
+      tax = tax_60(60000000) + tax_60_120(60000000) + tax_120_216(96000000) + tax_216_384(taxEarning - 216000000);
+   } else if (taxEarning > 384000000 && taxEarning <= 624000000) {
+      tax = tax_60(60000000) + tax_60_120(60000000) + tax_120_216(96000000) + tax_216_384(168000000) + tax_384_624(taxEarning - 384000000);
+   } else if (taxEarning > 624000000 && taxEarning <= 960000000) {
+      tax = tax_60(60000000) + tax_60_120(60000000) + tax_120_216(96000000) + tax_216_384(168000000) + tax_384_624(240000000) + tax_624_960(taxEarning - 624000000);
+   } else if (taxEarning > 960000000) {
+      tax = tax_60(60000000) + tax_60_120(60000000) + tax_120_216(96000000) + tax_216_384(168000000) + tax_384_624(240000000) + tax_624_960(336000000) + tax_960(taxEarning - 960000000);
+   }
+   return tax;
 }
 
-function enableButton__2() {
-   var number_1 = document.getElementById("txtNumber1").value;
-   var number_2 = document.getElementById("txtNumber2").value;
-   var number_3 = document.getElementById("txtNumber3").value;
-   var number_4 = document.getElementById("txtNumber4").value;
-   var number_5 = document.getElementById("txtNumber5").value;
+function tax_60(taxEarning) {
+   return taxEarning * 5 / 100;
+}
 
-   if (number_1 != "" && number_2 != "" && number_3 != "" && number_4 != "" && number_5 != "") {
-      document.getElementById("btnCountAvg").disabled = false;
-   } else {
-      document.getElementById("btnCountAvg").disabled = true;
-   }
+function tax_60_120(taxEarning) {
+   return taxEarning * 10 / 100;
+}
+
+function tax_120_216(taxEarning) {
+   return taxEarning * 15 / 100;
+}
+
+function tax_216_384(taxEarning) {
+   return taxEarning * 20 / 100;
+}
+
+function tax_384_624(taxEarning) {
+   return taxEarning * 25 / 100;
+}
+
+function tax_624_960(taxEarning) {
+   return taxEarning * 30 / 100;
+}
+
+function tax_960(taxEarning) {
+   return taxEarning * 35 / 100;
 }
