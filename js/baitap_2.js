@@ -30,7 +30,7 @@ document.getElementById("btnCalcPIT").addEventListener("click", function () {
    } else {
       var taxEarning = totalEarning - 4000000 - numberPeople * 1600000;
       taxEarning <= 0 ? result = fullName + " không cần phải trả tiền thuế TNCN" :
-         result = fullName + " phải trả " + currentFormat.format(calcPIT(taxEarning)) + "VND tiền thuế TNCN";
+         result = "Kết quả: " + fullName + " phải trả " + currentFormat.format(calcPIT(taxEarning)) + "VND tiền thuế TNCN";
    }
 
    document.getElementById("txtResult__2").innerHTML = result;
@@ -38,7 +38,7 @@ document.getElementById("btnCalcPIT").addEventListener("click", function () {
 
 function calcPIT(taxEarning) {
    var tax = 0;
-   if (taxEarning > 0 && taxEarning <= 60000000) {
+   if (taxEarning <= 60000000) {
       tax = tax_60(taxEarning);
    } else if (taxEarning > 60000000 && taxEarning <= 120000000) {
       tax = tax_60(60000000) + tax_60_120(taxEarning - 60000000);

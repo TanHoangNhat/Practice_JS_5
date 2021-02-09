@@ -25,12 +25,20 @@ document.getElementById("btnGetResult").addEventListener("click", function () {
     var totalMark = 0;
     if (isNaN(standardPoint)) {
         result = "Vui lòng nhập điểm chuẩn!!!";
+    } else if (standardPoint < 0 || standardPoint > 30) {
+        result = "Điểm chuẩn tối thiểu là 0, tối đa là 30!!!";
     } else if (isNaN(mark_1)) {
         result = "Vui lòng nhập điểm môn 1!!!";
+    } else if (mark_1 < 0 || mark_1 > 10) {
+        result = "Điểm tối thiểu là 0, tối đa là 10!!!";
     } else if (isNaN(mark_2)) {
         result = "Vui lòng nhập điểm môn 2!!!";
+    } else if (mark_2 < 0 || mark_2 > 10) {
+        result = "Điểm tối thiểu là 0, tối đa là 10!!!";
     } else if (isNaN(mark_3)) {
         result = "Vui lòng nhập điểm môn 3!!!";
+    } else if (mark_3 < 0 || mark_3 > 10) {
+        result = "Điểm tối thiểu là 0, tối đa là 10!!!";
     } else {
         totalMark = calculateTotalMark(mark_1, mark_2, mark_3, region, object);
         if (totalMark > 30) {

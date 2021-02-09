@@ -172,7 +172,8 @@ input::-webkit-inner-spin-button {
 
 .exercise .exercise__content .exercise__item input,
 .exercise .exercise__content .exercise__item button,
-.exercise .exercise__content .exercise__item select {
+.exercise .exercise__content .exercise__item select, 
+.exercise .exercise__content .exercise__item label {
     font-size: 1.5rem;
 }
 
